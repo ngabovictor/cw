@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home',
     'control',
+    'storages',
     # 'djcelery',
     # 'kombu.transport.django',
 ]
@@ -189,4 +190,20 @@ def ip_addresses():
 # Discover our IP address
 
 ALLOWED_HOSTS += ip_addresses()
+
+
+AWS_S3_SECURE_URLS = False       # use http instead of https
+AWS_QUERYSTRING_AUTH = False                # don't add complex authentication-related query parameters for requests
+AWS_S3_ACCESS_KEY_ID = "..."                # Your S3 Access Key
+AWS_S3_SECRET_ACCESS_KEY = "..."            # Your S3 Secret
+AWS_STORAGE_BUCKET_NAME = "myproject.media"
+AWS_S3_HOST = "s3-eu-west-1.amazonaws.com"  # Change to the media center you chose when creating the bucket
+
+STATICFILES_STORAGE = "myproject.s3utils.StaticS3BotoStorage"
+DEFAULT_FILE_STORAGE = "myproject.s3utils.MediaS3BotoStorage"
+
+# the next monkey patch is necessary to allow dots in the bucket names
+import ssl
+if hasattr(ssl, '_create_unverified_context'):
+   ssl._create_default_https_context = ssl._create_unverified_context
 

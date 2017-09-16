@@ -3,6 +3,7 @@ anyjson==0.3.3
 appdirs==1.4.0
 beautifulsoup4==4.4.1
 billiard==3.3.0.23
+boto==2.48.0
 Brlapi==0.6.4
 CDApplet==1.0
 CDBashApplet==1.0
@@ -11,11 +12,16 @@ chardet==2.3.0
 command-not-found==0.3
 defer==1.0.6
 devscripts===2.16.6ubuntu1
+dj-database-url==0.4.2
+dj-static==0.0.6
 Django==1.10.5
 django-celery==3.2.1
 django-filter==1.0.1
+django-storages==1.6.5
+django-toolbelt==0.0.1
 djangorestframework==3.6.2
 file-magic==0.3.0
+gunicorn==19.7.1
 html5lib==0.999
 kombu==3.0.37
 language-selector==0.1
@@ -27,6 +33,7 @@ onboard==1.2.0
 packaging==16.8
 pexpect==4.0.1
 Pillow==3.1.2
+psycopg2==2.7.3.1
 ptyprocess==0.5
 pyasn1==0.1.9
 pycups==1.9.73
@@ -41,6 +48,7 @@ reportlab==3.3.0
 requests==2.9.1
 sessioninstaller==0.0.0
 six==1.10.0
+static3==0.7.0
 system-service==0.3
 ubuntu-drivers-common==0.0.0
 ufw==0.35

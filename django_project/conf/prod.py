@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '#i9@vu0!1!%sic($$1($@dcn0!#um6*b)uv4pl9t@flb*%vpl6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -93,19 +93,11 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 
 from __future__ import unicode_literals
 from .base import *
-from .conf.dev import *
 
 DATABASES = {
-    "default": {
-        "CONN_MAX_AGE": 0,
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": "localhost",
-        "NAME": "djangp_project",
-        "PASSWORD": "",
-        "PORT": "",
-        "USER": "postgres"
-    }
+    "default": dj_database_url.config()
 }
+
 
 
 # Password validation
